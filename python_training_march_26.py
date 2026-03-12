@@ -47,3 +47,64 @@
 # print(contains_duplicates(nums))
 # print(contains_duplicates(nums2))
 # print(contains_duplicates(nums3))
+
+# 3/11/26
+# Dictionary
+
+# word = "banana"
+# counts = {}
+
+# for letter in word:
+#     if letter in counts:
+#         counts[letter] += 1
+#     else:
+#         counts[letter] = 1
+# print(counts) 
+
+# for letter in word:
+#     counts[letter] = counts.get(letter, 0) + 1
+# print(counts)
+
+# return the most frequent number in a list
+# ages = [21, 44, 31, 21, 45, 50, 21, 40, 44]
+
+# def most_common_age(numbers):
+#     age_counter = {}
+#     for age in numbers:
+#         if age in age_counter:
+#             age_counter[age] += 1
+#         else:
+#             age_counter[age] = 1
+#     return max(age_counter, key=age_counter.get)
+
+# # def most_common_age(numbers):
+# #     age_counter = {}
+# #     for age in numbers:
+# #         age_counter[age] = age_counter.get(age, 0) + 1
+# #     most_common = max(age_counter, key=age_counter.get) 
+# #     return most_common
+
+# print(most_common_age(ages))
+
+# need to write down get() and then max(age_counter, key=age_counter.get) to understand - knew about the get to populate dict but didn't know about for loop to populate
+
+# 3/12/26
+# enumerate()
+
+# fruits = ["apple", "banana", "orange"]
+# for index, fruit in enumerate(fruits):
+#     print(index, fruit)
+
+# users = ["trix", "jon", "sparky", "cash", "trix"]
+# for index, name in enumerate(users):
+#     print(index, name)
+
+# numbers = [12, 14, 13, 44, 21, 45, 67, 69]
+
+# def wheres_the_first_even_number(things):
+#     things.sort()
+#     for index, number in enumerate(things):
+#         if (number % 2 == 0):
+#             return number
+        
+# print(wheres_the_first_even_number(numbers))
