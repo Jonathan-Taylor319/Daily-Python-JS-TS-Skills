@@ -108,3 +108,11 @@
 #             return number
         
 # print(wheres_the_first_even_number(numbers))
+
+# 3/13/26
+# set()
+
+nums = [1, 2, 2, 3, 4, 4]
+
+unique = set(nums)
+print(unique)
