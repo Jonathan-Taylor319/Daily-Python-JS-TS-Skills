@@ -112,7 +112,23 @@
 # 3/13/26
 # set()
 
-nums = [1, 2, 2, 3, 4, 4]
+# nums = [1, 2, 2, 3, 4, 4]
 
-unique = set(nums)
-print(unique)
+# unique = set(nums)
+# print(unique)
+
+# problem  - return true if there's any duplicates
+
+# my_list = [1, 3, 'jon', 'james', 15, 'kickboxing', 'yes', 'no', 'yes']
+
+# # def check_for_dupes(my_input):
+# #     if len(my_input) != len(set(my_input)):
+# #         return True
+# #     else:
+# #         return False
+    
+# # refractured
+# def check_for_dupes(my_input):
+#     return len(my_input) != len(set(my_input))
+    
+# print(check_for_dupes(my_list))
