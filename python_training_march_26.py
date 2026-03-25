@@ -132,3 +132,6 @@
 #     return len(my_input) != len(set(my_input))
     
 # print(check_for_dupes(my_list))
+
+# week 1 Review 
+
