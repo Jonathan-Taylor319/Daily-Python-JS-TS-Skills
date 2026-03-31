@@ -102,14 +102,28 @@
 student_grades = {"Jon": 80, "Jeanette": 90, "Emma": 85, "Alex" : 96, "Olivia": 70}
 
 def listed_scores(grades):
+    passed = []
+    failed = []
+
     for index, (name, grade) in enumerate(grades.items()):
-        print(f"{index + 1}: {name}:{grade}") # had to google and took me a minute to get this figured out :P
+        print(f"{index + 1}: {name}: {grade}")
         if grade > 70:
-            print(f"{name} passed with a {grade}")
+            passed.append(name)
+        else:
+            failed.append(name)
+
+    print("\nPassed:")
+    for name in passed:
+        print(name)
+
+    print("\nFailed:")
+    for name in failed:
+        print(name)
+
+    top_student = max(grades, key=grades.get)
+    top_score = grades[top_student]
+    print(f"\nHighest score: {top_student} with a {top_score}")
         
-
-    
-
 listed_scores(student_grades)
 
 
