@@ -146,7 +146,7 @@
 # def analyze_text(text_str):
 #     # Got stuck on how to split up the str at first
 #     split_str = text_str.split()
-#     print(f"There are", len(split_str), "words in this string")
+#     print("There are", len(split_str), "words in this string")
 
 #     words_over_four = []
 
@@ -171,3 +171,38 @@
 
     
 # analyze_text(pythontext)
+
+# movies = {
+#     "Inception": {"genre": "sci-fi", "rating": 9.2, "year": 2010},
+#     "The Notebook": {"genre": "romance", "rating": 7.8, "year": 2004},
+#     "The Dark Knight": {"genre": "action", "rating": 9.5, "year": 2008},
+#     "Interstellar": {"genre": "sci-fi", "rating": 8.6, "year": 2014},
+#     "Titanic": {"genre": "romance", "rating": 7.9, "year": 1997},
+# }
+# # ```
+
+# # Write a function called `movie_search` that:
+
+# # **1.** Prints every movie with its rating and year like:
+# # ```
+# # Inception — 9.2 — 2010
+
+# # 2. Finds and prints the highest rated movie
+# # 3. Using a list comprehension, prints all sci-fi movies only
+# # 4. Using a list comprehension, prints all movies rated above 8.5
+
+# def movie_search(movie_dict):
+#     for movie, movie_details in movie_dict.items():
+#         print(movie, movie_details["rating"], movie_details["year"])
+
+#     sci_fi_movies = [movie for movie, movie_details in movie_dict.items() if movie_details["genre"] == "sci-fi"]
+        
+#     movies_over_eight_five = [movie for movie, movie_details in movie_dict.items() if movie_details["rating"] > 8.5]   
+    
+#     highest_rated_movie = max(movie_dict, key=lambda movie: movie_dict[movie]["rating"])
+#     print("the highest rated movie is", highest_rated_movie)
+    
+#     print("the sci-fi movies in the list are:", sci_fi_movies)
+#     print("these movies have over a 8.5 rating", movies_over_eight_five)
+
+# movie_search(movies)
