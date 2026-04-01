@@ -206,3 +206,46 @@
 #     print("these movies have over a 8.5 rating", movies_over_eight_five)
 
 # movie_search(movies)
+
+# 🐍 Challenge 4 — Contact Book
+# Build a simple contact book using a dictionary. Write these four functions:
+# 1. add_contact(contacts, name, phone, email) — adds a new contact
+# 2. remove_contact(contacts, name) — removes a contact, prints a message if name not found
+# 3. search_contact(contacts, name) — prints that contact's details, prints a message if not found
+# 4. list_all(contacts) — prints all contacts neatly with enumerate
+# Test it by calling all four functions with real data.
+
+# contacts = {}
+
+# def add_contact(name, phone, email):
+#     contacts[name] = {"phone":phone, "email":email}
+#     return contacts
+
+# add_contact("Jon","732-927-0850","email.email.com")
+# add_contact("Bob","732-927-9999","lost.email.com")
+# add_contact("RON","732-967-0850","apple.email.com")
+# add_contact("Bluey","315-927-0850","blue.email.com")
+# add_contact("costa","555-555-5555","done.email.com")
+
+# def remove_contact(contacts, name):
+#     if name in contacts:
+#         del contacts[name]
+#     else:
+#         print("Name not found")
+
+# remove_contact(contacts, "RON")
+# print(contacts)
+
+# def search_contact(contacts, name):
+#     if name in contacts:
+#         print(f"{name} - {contacts[name]["phone"]} - {contacts[name]["email"]}")
+#     else:
+#         print("Name not found")
+
+# search_contact(contacts, "Jon")
+
+# def list_all(contacts):
+#     for index, name  in enumerate(contacts):
+#         print(f"{index + 1}: {name}")
+
+# list_all(contacts)
