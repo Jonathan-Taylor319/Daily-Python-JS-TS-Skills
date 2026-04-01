@@ -99,31 +99,75 @@
 
 # Take your time, paste your code when you're ready, and don't stress about it being messy. Let's see what you've got! 💪
 
-student_grades = {"Jon": 80, "Jeanette": 90, "Emma": 85, "Alex" : 96, "Olivia": 70}
+# student_grades = {"Jon": 80, "Jeanette": 90, "Emma": 85, "Alex" : 96, "Olivia": 70}
 
-def listed_scores(grades):
-    passed = []
-    failed = []
+# def listed_scores(grades):
+#     passed = []
+#     failed = []
 
-    for index, (name, grade) in enumerate(grades.items()):
-        print(f"{index + 1}: {name}: {grade}")
-        if grade > 70:
-            passed.append(name)
-        else:
-            failed.append(name)
+#     for index, (name, grade) in enumerate(grades.items()):
+#         print(f"{index + 1}: {name}: {grade}")
+#         if grade > 70:
+#             passed.append(name)
+#         else:
+#             failed.append(name)
 
-    print("\nPassed:")
-    for name in passed:
-        print(name)
+#     print("\nPassed:")
+#     for name in passed:
+#         print(name)
 
-    print("\nFailed:")
-    for name in failed:
-        print(name)
+#     print("\nFailed:")
+#     for name in failed:
+#         print(name)
 
-    top_student = max(grades, key=grades.get)
-    top_score = grades[top_student]
-    print(f"\nHighest score: {top_student} with a {top_score}")
+#     top_student = max(grades, key=grades.get)
+#     top_score = grades[top_student]
+#     print(f"\nHighest score: {top_student} with a {top_score}")
         
-listed_scores(student_grades)
+# listed_scores(student_grades)
 
 
+# 🐍 Challenge 2 — Word Analyzer
+# Write a function called analyze_text that takes a string of text as input and does the following:
+# 1. Count how many words are in the string
+# 2. Print each word with its index using enumerate, starting at 1:
+# 1. the
+# 2. quick
+# 3. brown
+# ...
+# 3. Print the longest word in the string
+# 4. Print all words that are longer than 4 characters
+# 5. Print the original sentence but with every word reversed
+# "hello world" → "olleh dlrow"
+
+# Test it with this string:
+# pythontext = "the quick brown  fox jumps over the lazy dog"
+
+# def analyze_text(text_str):
+#     # Got stuck on how to split up the str at first
+#     split_str = text_str.split()
+#     print(f"There are", len(split_str), "words in this string")
+
+#     words_over_four = []
+
+#     for index, word in enumerate(split_str):
+#         print(f"{index + 1}: {word} ")
+#         if len(word) > 4:
+#             words_over_four.append(word)
+    
+#     longest_word = max(split_str, key=len)
+#     print(f'the longest word is {longest_word}')
+    
+#     if len(words_over_four) > 0:
+#         print("the string has these words over 4:", words_over_four)
+#     else:
+#         print("there are no words over 4 letters in this string")
+
+#     for index, word in enumerate(split_str):
+#         if index % 2 == 0 :
+#             print(word[::-1])
+#         else:
+#             print(word)
+
+    
+# analyze_text(pythontext)
