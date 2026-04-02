@@ -249,3 +249,43 @@
 #         print(f"{index + 1}: {name}")
 
 # list_all(contacts)
+
+
+# 🐍 Challenge 5 — Student Report Card
+# Build a student grade tracker that feels like a real tool. You'll need these functions:
+# 1. add_student(students, name, grades) — adds a student with a list of grades
+# pythonadd_student(students, "Jon", [85, 92, 78, 95, 88])
+# 2. get_average(students, name) — calculates and prints a student's average grade
+# 3. get_letter_grade(average) — returns a letter grade based on the average:
+
+# 90+ = "A"
+# 80+ = "B"
+# 70+ = "C"
+# below 70 = "F"
+
+# 4. print_report(students) — prints every student, their average, and their letter grade using enumerate
+# Test with at least 4 students each with 5 grades.
+
+student_grades = {}
+
+def add_student(student_grades, name, grades):
+    student_grades[name] = {"grades":grades}
+    return student_grades
+
+add_student(student_grades, "Jonathan", [90, 85, 86, 99, 94])
+add_student(student_grades, "Bob", [65, 75, 70, 90, 40, ])
+add_student(student_grades, "George", [80, 85, 87, 80, 83])
+add_student(student_grades, "Richard", [70, 99, 80, 75, 95])
+add_student(student_grades, "Doug", [99, 100, 95, 98, 0])
+
+def print_list_of_students_simple(student_grades):
+    for student, details in student_grades.items():
+        print(student, details)
+
+print_list_of_students_simple(student_grades)
+
+    
+
+
+
+
