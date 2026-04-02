@@ -99,7 +99,7 @@
 
 # Take your time, paste your code when you're ready, and don't stress about it being messy. Let's see what you've got! 💪
 
-# student_grades = {"Jon": 80, "Jeanette": 90, "Emma": 85, "Alex" : 96, "Olivia": 70}
+# student_test_grades = {"Jon": 80, "Jeanette": 90, "Emma": 85, "Alex" : 96, "Olivia": 70}
 
 # def listed_scores(grades):
 #     passed = []
@@ -124,7 +124,7 @@
 #     top_score = grades[top_student]
 #     print(f"\nHighest score: {top_student} with a {top_score}")
         
-# listed_scores(student_grades)
+# listed_scores(student_test_grades)
 
 
 # 🐍 Challenge 2 — Word Analyzer
@@ -266,23 +266,32 @@
 # 4. print_report(students) — prints every student, their average, and their letter grade using enumerate
 # Test with at least 4 students each with 5 grades.
 
-student_grades = {}
+student_test_grades = {}
+student_quiz_grades = {}
 
-def add_student(student_grades, name, grades):
-    student_grades[name] = {"grades":grades}
-    return student_grades
+def add_student(student_test_grades, name, grades):
+    student_test_grades[name] = {"grades":grades}
+    return student_test_grades
 
-add_student(student_grades, "Jonathan", [90, 85, 86, 99, 94])
-add_student(student_grades, "Bob", [65, 75, 70, 90, 40, ])
-add_student(student_grades, "George", [80, 85, 87, 80, 83])
-add_student(student_grades, "Richard", [70, 99, 80, 75, 95])
-add_student(student_grades, "Doug", [99, 100, 95, 98, 0])
+add_student(student_test_grades, "Jonathan", [90, 85, 86, 99, 94])
+add_student(student_test_grades, "Bob", [65, 75, 70, 90, 40, ])
+add_student(student_test_grades, "George", [80, 85, 87, 80, 83])
+add_student(student_test_grades, "Richard", [70, 99, 80, 75, 95])
+add_student(student_test_grades, "Doug", [99, 100, 95, 98, 0])
 
-def print_list_of_students_simple(student_grades):
+add_student(student_quiz_grades, "jonathan", [100, 100, 98, 99, 100])
+add_student(student_quiz_grades, "Bob", [88, 67, 98, 76, 44])
+add_student(student_quiz_grades, "George", [90, 80, 70, 60, 100])
+add_student(student_quiz_grades, "Richard", [70, 99, 80, 75, 95])
+add_student(student_quiz_grades, "Doug", [60, 67, 68, 65, 90])
+
+def print_list_of_students_grades_simple(student_grades, label):
+    print(f"\n{label}")
     for student, details in student_grades.items():
         print(student, details)
 
-print_list_of_students_simple(student_grades)
+print_list_of_students_grades_simple(student_test_grades, "Test Scores")
+print_list_of_students_grades_simple(student_quiz_grades, "Quiz Scores")
 
     
 
