@@ -266,35 +266,65 @@
 # 4. print_report(students) — prints every student, their average, and their letter grade using enumerate
 # Test with at least 4 students each with 5 grades.
 
-student_test_grades = {}
-student_quiz_grades = {}
+# student_test_grades = {}
+# student_quiz_grades = {}
 
-def add_student(student_test_grades, name, grades):
-    student_test_grades[name] = {"grades":grades}
-    return student_test_grades
+# def add_student(student_test_grades, name, grades):
+#     student_test_grades[name] = {"grades":grades}
+#     return student_test_grades
 
-add_student(student_test_grades, "Jonathan", [90, 85, 86, 99, 94])
-add_student(student_test_grades, "Bob", [65, 75, 70, 90, 40, ])
-add_student(student_test_grades, "George", [80, 85, 87, 80, 83])
-add_student(student_test_grades, "Richard", [70, 99, 80, 75, 95])
-add_student(student_test_grades, "Doug", [99, 100, 95, 98, 0])
+# add_student(student_test_grades, "Jonathan", [90, 85, 86, 99, 94])
+# add_student(student_test_grades, "Bob", [65, 75, 70, 90, 40, ])
+# add_student(student_test_grades, "George", [80, 85, 87, 80, 83])
+# add_student(student_test_grades, "Richard", [70, 99, 80, 75, 95])
+# add_student(student_test_grades, "Doug", [99, 100, 95, 98, 0])
 
-add_student(student_quiz_grades, "jonathan", [100, 100, 98, 99, 100])
-add_student(student_quiz_grades, "Bob", [88, 67, 98, 76, 44])
-add_student(student_quiz_grades, "George", [90, 80, 70, 60, 100])
-add_student(student_quiz_grades, "Richard", [70, 99, 80, 75, 95])
-add_student(student_quiz_grades, "Doug", [60, 67, 68, 65, 90])
+# add_student(student_quiz_grades, "jonathan", [100, 100, 98, 99, 100])
+# add_student(student_quiz_grades, "Bob", [88, 67, 98, 76, 44])
+# add_student(student_quiz_grades, "George", [90, 80, 70, 60, 100])
+# add_student(student_quiz_grades, "Richard", [70, 99, 80, 75, 95])
+# add_student(student_quiz_grades, "Doug", [60, 67, 68, 65, 90])
 
-def print_list_of_students_grades_simple(student_grades, label):
-    print(f"\n{label}")
-    for student, details in student_grades.items():
-        print(student, details)
+# def print_list_of_students_grades_simple(student_grades, label):
+#     print(f"\n{label}")
+#     for student, details in student_grades.items():
+#         print(student, details)
 
-print_list_of_students_grades_simple(student_test_grades, "Test Scores")
-print_list_of_students_grades_simple(student_quiz_grades, "Quiz Scores")
+# print_list_of_students_grades_simple(student_test_grades, "Test Scores")
+# print_list_of_students_grades_simple(student_quiz_grades, "Quiz Scores")
 
+# def get_average(student_grade_dict, name):
+#     if name in student_grade_dict:
+#         grades = student_grade_dict[name]["grades"]
+#         average_grade = sum(grades)/len(grades)
+#         return average_grade
+#     else:
+#         print(f"{name} not found")
+        
+# print(get_average(student_test_grades, "Jonathan"))
+
+# def get_letter_grade(average):
+#     if average >= 90:
+#         return "A"
+#     elif average >= 80:
+#         return "B"
+#     elif average >= 70:
+#         return "C"
+#     else:
+#         return "F"
+
+# def print_report(students):
+#     for index, student in enumerate(students):
+#         print(f"{index + 1}. {student}",get_letter_grade(get_average(students, student)))
     
 
-
-
-
+# print_report(student_test_grades)
+# print_report(student_quiz_grades)
+    
+🐍 Challenge 6 — Library Book Tracker
+Build a library system with these functions:
+1. add_book(library, title, author, pages) — adds a book
+2. check_out(library, title) — marks a book as checked out, prints error if not found or already checked out
+3. return_book(library, title) — marks a book as returned, prints error if not found or not checked out
+4. available_books(library) — prints only books that are NOT checked out
+5. longest_book(library) — prints the book with the most pages
