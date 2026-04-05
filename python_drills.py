@@ -321,10 +321,35 @@
 # print_report(student_test_grades)
 # print_report(student_quiz_grades)
     
-🐍 Challenge 6 — Library Book Tracker
-Build a library system with these functions:
-1. add_book(library, title, author, pages) — adds a book
-2. check_out(library, title) — marks a book as checked out, prints error if not found or already checked out
-3. return_book(library, title) — marks a book as returned, prints error if not found or not checked out
-4. available_books(library) — prints only books that are NOT checked out
-5. longest_book(library) — prints the book with the most pages
+# 🐍 Challenge 6 — Library Book Tracker
+# Build a library system with these functions:
+# 1. add_book(library, title, author, pages) — adds a book
+# 2. check_out(library, title) — marks a book as checked out, prints error if not found or already checked out
+# 3. return_book(library, title) — marks a book as returned, prints error if not found or not checked out
+# 4. available_books(library) — prints only books that are NOT checked out
+# 5. longest_book(library) — prints the book with the most pages
+
+library_book_inventory = {}
+
+def add_book(inventory, title, author, pages, checkout_status):
+    inventory[title] = {"Author": author, "pages": pages, "Check-out Status": checkout_status }
+    return inventory
+
+add_book(library_book_inventory, "James and the Giant Peach", "Some Author", 245, False)
+# print(library_book_inventory)
+
+add_book(library_book_inventory, "The Quest", "Jean Clead VanDamn", 600, False)
+add_book(library_book_inventory, "The Odessy", "Some good Author", 900, False)
+add_book(library_book_inventory, "Rome and Juliet", "Shakesdude", 1050, False)
+add_book(library_book_inventory, "Live Laugh Love", "Some Chick",  2500, False)
+add_book(library_book_inventory, "The Client", "John Grisham", 3000, False)
+add_book(library_book_inventory, "How to Stop Smoking", "John C Smith", 250, False)
+
+def simple_inventory_check(inventory):
+    for book in inventory.items():
+        print(book)
+
+# simple_inventory_check(library_book_inventory)
+
+def check_out(library, checkout_status):
+    pass
