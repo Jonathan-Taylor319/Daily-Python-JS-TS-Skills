@@ -332,7 +332,7 @@
 library_book_inventory = {}
 
 def add_book(inventory, title, author, pages, checkout_status):
-    inventory[title] = {"Author": author, "pages": pages, "Check-out Status": checkout_status }
+    inventory[title] = {"Author": author, "pages": pages, "Check_out Status": checkout_status }
     return inventory
 
 add_book(library_book_inventory, "James and the Giant Peach", "Some Author", 245, False)
@@ -340,7 +340,7 @@ add_book(library_book_inventory, "James and the Giant Peach", "Some Author", 245
 
 add_book(library_book_inventory, "The Quest", "Jean Clead VanDamn", 600, False)
 add_book(library_book_inventory, "The Odessy", "Some good Author", 900, False)
-add_book(library_book_inventory, "Rome and Juliet", "Shakesdude", 1050, False)
+add_book(library_book_inventory, "Romeo and Juliet", "Shakesdude", 1050, False)
 add_book(library_book_inventory, "Live Laugh Love", "Some Chick",  2500, False)
 add_book(library_book_inventory, "The Client", "John Grisham", 3000, False)
 add_book(library_book_inventory, "How to Stop Smoking", "John C Smith", 250, False)
@@ -349,7 +349,51 @@ def simple_inventory_check(inventory):
     for book in inventory.items():
         print(book)
 
-# simple_inventory_check(library_book_inventory)
+def check_out_book(inventory, title):
+    if title in inventory:
+        checkout_status = inventory[title]["Check_out Status"]
+        if title in inventory and checkout_status == True:
+            print("Sorry book checked out")
+        elif title in inventory and checkout_status == False:
+            inventory[title]["Check_out Status"] = True
+            print(f"{title}, is now checked out. please bring back in two weeks")
+    else:
+        print(f"{title} not found at this library")
 
-def check_out(library, checkout_status):
-    pass
+check_out_book(library_book_inventory, "The Quest")
+check_out_book(library_book_inventory, "Hunger Games")
+
+def return_book(inventory, title):
+    if title in inventory:
+        checkout_status = inventory[title]["Check_out Status"]
+        if title in inventory and checkout_status == False:
+            print("Sorry - you cant check in a book thats not checked out")
+        elif title in inventory and checkout_status == True:
+            inventory[title]["Check_out Status"] = False
+            print(f"Thanks for returning: {title}")
+    else:
+        print(f"{title} does not belong at this library")
+
+return_book(library_book_inventory, "The Quest")
+
+def available_books(inventory):
+    for title in inventory:
+        if inventory[title]["Check_out Status"] == False:
+            print(f"{title} is available to be checked out")
+
+def longest_book(inventory):
+    return max(inventory, key=lambda title:inventory[title]["pages"])
+    
+check_out_book(library_book_inventory, "How to Stop Smoking")      
+check_out_book(library_book_inventory, "Romeo and Juliet")      
+available_books(library_book_inventory)
+print(longest_book(library_book_inventory), "is the longest book")
+
+
+
+    
+
+
+
+
+
