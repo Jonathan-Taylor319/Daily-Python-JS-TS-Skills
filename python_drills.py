@@ -329,71 +329,98 @@
 # 4. available_books(library) — prints only books that are NOT checked out
 # 5. longest_book(library) — prints the book with the most pages
 
-library_book_inventory = {}
+# library_book_inventory = {}
 
-def add_book(inventory, title, author, pages, checkout_status):
-    inventory[title] = {"Author": author, "pages": pages, "Check_out Status": checkout_status }
-    return inventory
+# def add_book(inventory, title, author, pages, checkout_status):
+#     inventory[title] = {"Author": author, "pages": pages, "Check_out Status": checkout_status }
+#     return inventory
 
-add_book(library_book_inventory, "James and the Giant Peach", "Some Author", 245, False)
-# print(library_book_inventory)
+# add_book(library_book_inventory, "James and the Giant Peach", "Some Author", 245, False)
+# # print(library_book_inventory)
 
-add_book(library_book_inventory, "The Quest", "Jean Clead VanDamn", 600, False)
-add_book(library_book_inventory, "The Odessy", "Some good Author", 900, False)
-add_book(library_book_inventory, "Romeo and Juliet", "Shakesdude", 1050, False)
-add_book(library_book_inventory, "Live Laugh Love", "Some Chick",  2500, False)
-add_book(library_book_inventory, "The Client", "John Grisham", 3000, False)
-add_book(library_book_inventory, "How to Stop Smoking", "John C Smith", 250, False)
+# add_book(library_book_inventory, "The Quest", "Jean Clead VanDamn", 600, False)
+# add_book(library_book_inventory, "The Odessy", "Some good Author", 900, False)
+# add_book(library_book_inventory, "Romeo and Juliet", "Shakesdude", 1050, False)
+# add_book(library_book_inventory, "Live Laugh Love", "Some Chick",  2500, False)
+# add_book(library_book_inventory, "The Client", "John Grisham", 3000, False)
+# add_book(library_book_inventory, "How to Stop Smoking", "John C Smith", 250, False)
 
-def simple_inventory_check(inventory):
-    for book in inventory.items():
-        print(book)
+# def simple_inventory_check(inventory):
+#     for book in inventory.items():
+#         print(book)
 
-def check_out_book(inventory, title):
-    if title in inventory:
-        checkout_status = inventory[title]["Check_out Status"]
-        if title in inventory and checkout_status == True:
-            print("Sorry book checked out")
-        elif title in inventory and checkout_status == False:
-            inventory[title]["Check_out Status"] = True
-            print(f"{title}, is now checked out. please bring back in two weeks")
-    else:
-        print(f"{title} not found at this library")
+# def check_out_book(inventory, title):
+#     if title in inventory:
+#         checkout_status = inventory[title]["Check_out Status"]
+#         if title in inventory and checkout_status == True:
+#             print("Sorry book checked out")
+#         elif title in inventory and checkout_status == False:
+#             inventory[title]["Check_out Status"] = True
+#             print(f"{title}, is now checked out. please bring back in two weeks")
+#     else:
+#         print(f"{title} not found at this library")
 
-check_out_book(library_book_inventory, "The Quest")
-check_out_book(library_book_inventory, "Hunger Games")
+# check_out_book(library_book_inventory, "The Quest")
+# check_out_book(library_book_inventory, "Hunger Games")
 
-def return_book(inventory, title):
-    if title in inventory:
-        checkout_status = inventory[title]["Check_out Status"]
-        if title in inventory and checkout_status == False:
-            print("Sorry - you cant check in a book thats not checked out")
-        elif title in inventory and checkout_status == True:
-            inventory[title]["Check_out Status"] = False
-            print(f"Thanks for returning: {title}")
-    else:
-        print(f"{title} does not belong at this library")
+# def return_book(inventory, title):
+#     if title in inventory:
+#         checkout_status = inventory[title]["Check_out Status"]
+#         if title in inventory and checkout_status == False:
+#             print("Sorry - you cant check in a book thats not checked out")
+#         elif title in inventory and checkout_status == True:
+#             inventory[title]["Check_out Status"] = False
+#             print(f"Thanks for returning: {title}")
+#     else:
+#         print(f"{title} does not belong at this library")
 
-return_book(library_book_inventory, "The Quest")
+# return_book(library_book_inventory, "The Quest")
 
-def available_books(inventory):
-    for title in inventory:
-        if inventory[title]["Check_out Status"] == False:
-            print(f"{title} is available to be checked out")
+# def available_books(inventory):
+#     for title in inventory:
+#         if inventory[title]["Check_out Status"] == False:
+#             print(f"{title} is available to be checked out")
 
-def longest_book(inventory):
-    return max(inventory, key=lambda title:inventory[title]["pages"])
+# def longest_book(inventory):
+#     return max(inventory, key=lambda title:inventory[title]["pages"])
     
-check_out_book(library_book_inventory, "How to Stop Smoking")      
-check_out_book(library_book_inventory, "Romeo and Juliet")      
-available_books(library_book_inventory)
-print(longest_book(library_book_inventory), "is the longest book")
+# check_out_book(library_book_inventory, "How to Stop Smoking")      
+# check_out_book(library_book_inventory, "Romeo and Juliet")      
+# available_books(library_book_inventory)
+# print(longest_book(library_book_inventory), "is the longest book")
 
+# 🐍 Challenge 7 — Safe Calculator
+# Write a calculator function called calculate(num1, num2, operation) that supports these operations: "add", "subtract", "multiply", "divide".
+# Requirements:
+# 1. Handle the operation using if/elif/else
+# 2. Use try/except to handle two specific errors:
 
+# Dividing by zero
+# Someone passing in a string instead of a number
 
-    
+# 3. Return the result, or a helpful error message
 
+# def calculate(num1, num2, operation):
+#     try:
+#         if operation == "add":
+#             return num1 + num2
+#         elif operation == "subtract":
+#             return num1 - num2
+#         elif operation == "multiply":
+#             return num1 * num2
+#         elif operation == "divide":
+#             try:
+#                 return num1 / num2
+#             except ZeroDivisionError:
+#                 if num1 or num2 == 0:
+#                     return "divide by zero"
+#         else:
+#             return "unknown operation"
+#     except TypeError:
+#         return "invalid input"
 
-
-
-
+# print(calculate(10, 2, "divide"))    # normal
+# print(calculate(10, 0, "divide"))    # divide by zero
+# print(calculate(10, "cat", "add"))    # invalid input
+# print(calculate(10, 2, "multiply"))   # normal
+# print(calculate(10, 2, "blah"))     # unknown operation
