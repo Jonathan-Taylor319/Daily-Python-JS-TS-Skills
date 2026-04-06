@@ -424,3 +424,101 @@
 # print(calculate(10, "cat", "add"))    # invalid input
 # print(calculate(10, 2, "multiply"))   # normal
 # print(calculate(10, 2, "blah"))     # unknown operation
+
+
+# 🐍 Challenge 8 — Expense Tracker
+# Build a personal expense tracker with these functions:
+# 1. add_expense(expenses, category, amount, description) — adds an expense
+# pythonadd_expense(expenses, "food", 12.50, "Chipotle")
+# 2. total_spent(expenses) — returns total amount spent across all expenses
+# 3. spent_by_category(expenses) — returns a dict showing total spent per category
+# 4. most_expensive(expenses) — returns the single most expensive expense
+# 5. expenses_over(expenses, amount) — returns a list of all
+
+# total_expenses = {}
+
+# def add_expense(expenses, category, amount, description):
+#     purchase_number = len(expenses)
+#     category = category.lower()
+#     expenses[purchase_number] = {"category": category, "amount": amount, "description": description}
+#     return expenses
+
+# add_expense(total_expenses, "Food", 25, "Burger King")
+# add_expense(total_expenses, "Entertainment", 65, "Movies")
+# add_expense(total_expenses, "enterainment", 90, "Go Carts")
+# add_expense(total_expenses, "entertainment", 150, "top Golf")
+# add_expense(total_expenses, "Bills", 2400, "Rent")
+# add_expense(total_expenses, "bills", 500, "electric")
+# add_expense(total_expenses, "bills", 100, "internet")
+# add_expense(total_expenses, "bills", 100, "EZ Pass")
+# add_expense(total_expenses, "Food", 12, "Starbucks")
+# add_expense(total_expenses, "Food", 12, "Starbucks")
+# add_expense(total_expenses, "Food", 12, "Starbucks")
+
+# def simple_expense_list(expenses):
+#     for expense in expenses.items():
+#         print(expense)
+
+# simple_expense_list(total_expenses)
+
+# def total_spent(expenses):
+#     total = 0
+#     for _, details in expenses.items(): # learned today to use _ when unpacking a dict and don't need the initial
+#         total = total + details["amount"]
+#     return f"the total ammount of expenses is:\n {total}"
+    
+# print(total_spent(total_expenses))
+
+# def spent_by_category(expenses):
+#     categorized_expenses = {}
+#     for _, details in expenses.items():
+#         category = details["category"]
+#         amount = details["amount"]
+#         categorized_expenses[category] = categorized_expenses.get(category, 0 ) + amount
+#     return f"Amount spent by category is:\n {categorized_expenses}"
+
+# print(spent_by_category(total_expenses))
+
+# def most_expensive(expenses):
+#     most_expensive_expense = max(expenses, key=lambda description:expenses[description]["amount"])
+#     description = expenses[most_expensive_expense]["description"]
+#     amount = expenses[most_expensive_expense]["amount"]
+#     return f"The Most expensive Item was:\n {description}: {amount}"
+    
+# print(most_expensive(total_expenses))
+
+# def expenses_over(expenses, amount):
+#     list_of_items_costing_more = []
+#     for _, details in expenses.items():
+#         expense_item = details["description"]
+#         expense_amount = details["amount"]
+#         if expense_amount > amount:
+#             list_of_items_costing_more.append(expense_item)
+#     if len(list_of_items_costing_more) == 0:
+#         return f"Nothing Costs more than ${amount}"
+#     else:
+#         return list_of_items_costing_more
+    
+# print(expenses_over(total_expenses, 24))
+
+# -------------------------------------Cheat sheet------------------------------------------------
+# Do I need to loop or not?
+
+# Need ONE specific thing → direct access, no loop
+# Need ALL of them → loop
+
+# Do I unpack or not?
+
+# Need BOTH key and value → for key, value in dict.items()
+# Need only values → for _, value in dict.items()
+# Need only keys → for key in dict
+# Already have the key → dict[key]["whatever"]
+
+
+# # option 1 - declare variables first (readable)
+# category = details["category"]
+# amount = details["amount"]
+
+# # option 2 - inline (compact)
+# categorized[details["category"]] += details["amount"]
+
