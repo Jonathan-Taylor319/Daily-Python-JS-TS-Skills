@@ -522,3 +522,40 @@
 # # option 2 - inline (compact)
 # categorized[details["category"]] += details["amount"]
 
+# 🐍 Challenge 9 — Mini Store Inventory
+# Build a small store inventory system. This one is bigger than the others — it's meant to feel like a real program.
+# Data structure — you design it again.
+# Functions:
+# 1. add_item(inventory, name, price, quantity) — adds an item to the store
+# 2. sell_item(inventory, name, quantity) — reduces quantity when something sells, errors if not enough stock or item doesn't exist
+# 3. restock_item(inventory, name, quantity) — increases quantity of existing item, errors if item doesn't exist
+# 4. total_inventory_value(inventory) — returns total value of all stock combined (price × quantity for each item)
+# 5. low_stock(inventory) — returns list of items with quantity 5 or below
+# 6. most_valuable_item(inventory) — returns the item with the highest total value (price × quantity)
+
+mini_store_inventory = {} 
+
+def add_item(inventory, name, price, quantity):
+    name = name.lower()
+    item_stock_number = len(mini_store_inventory) # set to 0 and tried to manually increase but obv it would reset to 0 - had to look at previous challenge and use len(dict)
+    inventory[item_stock_number] = {"name": name, "price": price, "quantity":quantity}
+    
+add_item(mini_store_inventory, "milk - 2%", 3.99, 10)
+add_item(mini_store_inventory, "Energy Drink - Monster", 2.99, 40)
+add_item(mini_store_inventory, "Energy Drink - Red Bull", 2.99, 40)
+add_item(mini_store_inventory, "donut - glazed", .99, 5)
+add_item(mini_store_inventory, "Donut - plain", .99, 5)
+add_item(mini_store_inventory, "donut - chocolate glazed", .99, 8)
+add_item(mini_store_inventory, "medicine - aspirin", 5.99, 25)
+
+def simple_inventory_check(inventory):
+    print("Currently in Stock:")
+    for _,stuff in inventory.items():
+        print(stuff)
+
+# simple_inventory_check(mini_store_inventory)
+
+# def sell_item(inventory, name, quantity):
+#     if name in inventory and quantity > 0:
+
+
