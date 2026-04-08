@@ -553,3 +553,22 @@ def simple_inventory_check(inventory):
         print(item,":",details)
 
 simple_inventory_check(mini_store_inventory)
+
+def sell_item(inventory, item, quantity):
+    try:
+        item = item.lower()
+        if item in inventory:
+            if inventory[item]["quantity"] >= quantity:
+                inventory[item]["quantity"] = inventory[item]["quantity"] - quantity  # update it
+            else:
+                return "not enough stock"
+        else:
+            return f"{item} not found"
+    except TypeError:
+        print("Quantity should be an integer")
+    
+print("Lets check to see if the sell_item works :P")
+sell_item(mini_store_inventory, "milk - 2%", 3)
+sell_item(mini_store_inventory, "milk - 2%", "one")
+
+simple_inventory_check(mini_store_inventory)
