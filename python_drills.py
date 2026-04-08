@@ -537,8 +537,7 @@ mini_store_inventory = {}
 
 def add_item(inventory, name, price, quantity):
     name = name.lower()
-    item_stock_number = len(mini_store_inventory) # set to 0 and tried to manually increase but obv it would reset to 0 - had to look at previous challenge and use len(dict)
-    inventory[item_stock_number] = {"name": name, "price": price, "quantity":quantity}
+    inventory[name] = {"price": price, "quantity":quantity}
     
 add_item(mini_store_inventory, "milk - 2%", 3.99, 10)
 add_item(mini_store_inventory, "Energy Drink - Monster", 2.99, 40)
@@ -550,12 +549,7 @@ add_item(mini_store_inventory, "medicine - aspirin", 5.99, 25)
 
 def simple_inventory_check(inventory):
     print("Currently in Stock:")
-    for _,stuff in inventory.items():
-        print(stuff)
+    for item, details in inventory.items():
+        print(item,":",details)
 
-# simple_inventory_check(mini_store_inventory)
-
-# def sell_item(inventory, name, quantity):
-#     if name in inventory and quantity > 0:
-
-
+simple_inventory_check(mini_store_inventory)
