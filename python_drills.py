@@ -559,7 +559,7 @@ def sell_item(inventory, item, quantity):
         item = item.lower()
         if item in inventory:
             if inventory[item]["quantity"] >= quantity:
-                inventory[item]["quantity"] = inventory[item]["quantity"] - quantity  # update it
+                inventory[item]["quantity"] = inventory[item]["quantity"] - quantity
             else:
                 return "not enough stock"
         else:
