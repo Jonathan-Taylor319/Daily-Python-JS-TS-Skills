@@ -37,3 +37,80 @@
 # print(most_common_char("aadsdwdadsw"))
 # print(most_common_char("aabbbcc"))   # should be "b"
 # print(most_common_char("aabbcc"))    # should be "a"
+
+# Write a function called is_palindrome that takes a string and returns True if it's a palindrome, False if not. Case insensitive.
+
+# def is_palindrome(string):
+#     string = string.lower()
+#     backwords = string[::-1]
+#     return string == backwords
+
+# print(is_palindrome("racecar"))
+# print(is_palindrome("race"))
+# print(is_palindrome("bob"))
+
+# Write a function called two_sum that takes a list of numbers and a target, and returns the indices of the two numbers that add up to the target.
+
+# def two_sum(number_list, target):
+#     for index, num in enumerate(number_list):
+#         for index_2, num_2 in enumerate(number_list):
+#             if index == index_2:
+#                 continue
+#             if num + num_2 == target:
+#                 return index, index_2
+#     return f"No numbers in list equal {target}"
+            
+# print(two_sum([1, 2, 3, 4, 5, 6, 7, 8], 15))
+# print(two_sum([1, 2], 6))
+# print(two_sum([4, 5, 6], 8))
+
+# Write a function called fizzbuzz that takes a number n and returns a list of strings from 1 to n where:
+
+# Multiples of 3 → "Fizz"
+# Multiples of 5 → "Buzz"
+# Multiples of both → "FizzBuzz"
+# Everything else → the number as a string
+
+# def fizzbuzz(n):
+#     list_of_fizz_buzz = []
+#     for count in range(1, n + 1):
+#         if count % 15 == 0:
+#             list_of_fizz_buzz.append("FizzBuzz")
+#         elif count % 5 == 0:
+#             list_of_fizz_buzz.append("Buzz")
+#         elif count % 3 == 0:
+#             list_of_fizz_buzz.append("Fizz")
+#         else:
+#             list_of_fizz_buzz.append(count)
+#     return list_of_fizz_buzz
+
+# print(fizzbuzz(15))
+# print(fizzbuzz(1))
+# print(fizzbuzz(35))
+
+# Problem — flatten_list
+# Write a function that takes a nested list and returns a single flat list.
+
+# def flatten_list(list_of_lists):
+#     new_list = []
+#     for num in list_of_lists:
+#         for num_2 in num:
+#             new_list.append(num_2)
+#     return new_list
+            
+# print(flatten_list([[1, 2], [3, 4], [5, 6]]))
+# print(flatten_list([[1, [2, 3]], [4, 5]]))
+
+# # Write a function called group_by_first_letter that takes a list of words and 
+# # returns a dictionary where each key is a letter and the value is a list of words starting with that letter.
+
+# def group_by_first_letter(list_of_words):
+#     groups = {}
+#     for word in list_of_words:
+#         groups[word[0]] = groups.get(word[0], [])
+#         groups[word[0]].append(word)   
+#     print(groups)
+
+# (group_by_first_letter(["apple", "banana", "avocado", "blueberry", "cherry"]))
+# # Since we made the key word index 0 - it will append only matching words with the same first lettter 
+# # We also use groups[word[0]] = word index 0 because we aren't looking to make nested dict but in fact index 0 
