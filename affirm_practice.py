@@ -156,18 +156,60 @@
 # Problem — second_largest
 # Write a function that takes a list of numbers and returns the second largest number.
 
-def second_largest(list_of_nums):
-    # get rid of dupes
-    no_dupes = set(list_of_nums)
-    # sort our list
-    sorted_nums = sorted(no_dupes)
-    # check to see if length of list is over 2
-    if len(sorted_nums) > 1:
-        # return our 2nd highest 
-        return sorted_nums[-2]
-    else:
-        # return none
-        return "None"
+# def second_largest(list_of_nums):
+#     # get rid of dupes
+#     no_dupes = set(list_of_nums)
+#     # sort our list
+#     sorted_nums = sorted(no_dupes)
+#     # check to see if length of list is over 2
+#     if len(sorted_nums) > 1:
+#         # return our 2nd highest 
+#         return sorted_nums[-2]
+#     else:
+#         # return none
+#         return "None"
 
-print(second_largest([1, 2, 4, 5, 6, 10, 23, 45, 33]))
-print(second_largest([1, 1, 1]))
+# print(second_largest([1, 2, 4, 5, 6, 10, 23, 45, 33]))
+# print(second_largest([1, 1, 1]))
+
+# Warm up — is_anagram
+# Write a function that takes two strings and returns True if they are anagrams of each other, False if not. Case insensitive.
+
+# def is_anagram(str1, str2):
+#     # need to sort and lower the input
+#     sorted_and_low = sorted(str1.lower())
+#     sorted_and_low_2 = sorted(str2.lower())
+#     # compare and check
+#     return sorted_and_low == sorted_and_low_2
+
+# print(is_anagram("listen", "silent"))
+# print(is_anagram("ascb", "dd"))
+    
+# Problem — valid_parentheses
+# Write a function that takes a string of parentheses and returns True if they are valid (properly opened and closed), False if not.
+
+def valid_parentheses(string):
+    # Something to hold our check
+    stack = []
+    # loop through the string
+    for symbol in string:
+        # check for opening
+        if symbol == "(":
+            # if there is the opening add to our check list
+            stack.append(symbol)
+        # if the symbol closes
+        elif symbol == ")":
+            # check if list is empty -
+            if len(stack) == 0:
+                # return false  
+                return False
+            # else pop out the opening we saved -
+            else:
+                stack.pop()
+    # if check list is empty then we know it opened and closed enough to clear out
+    return len(stack) == 0
+    
+print(valid_parentheses("((()))"))
+print(valid_parentheses("(())))"))
+print(valid_parentheses(")))"))
+print(valid_parentheses("((()))"))
