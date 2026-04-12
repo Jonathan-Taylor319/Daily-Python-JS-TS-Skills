@@ -114,3 +114,60 @@
 # (group_by_first_letter(["apple", "banana", "avocado", "blueberry", "cherry"]))
 # # Since we made the key word index 0 - it will append only matching words with the same first lettter 
 # # We also use groups[word[0]] = word index 0 because we aren't looking to make nested dict but in fact index 0 
+
+# Problem — find_duplicates
+# Write a function that takes a list of numbers and returns a list of numbers that appear more than once. Order doesn't matter.
+
+# def find_duplicate(list_of_numbers):
+#     # create a dict to hold the count of each letter
+#     number_count = {}
+#     # need a list to hold our dupes
+#     dupes = []
+#     # loop through the list
+#     for num in list_of_numbers:
+#         # count how many of each number
+#         number_count[num] = number_count.get(num, 0) + 1
+#     # iterate through dict and unpack
+#     for key, value in number_count.items():
+#         # check to see if more than one
+#         if value > 1:
+#             # add to our list
+#             dupes.append(key)
+#     # return our new list
+#     return dupes
+    
+
+# print(find_duplicate([1, 2, 3, 2, 4, 3, 5]))
+
+# Problem — longest_word
+# Write a function that takes a sentence and returns the longest word. If there's a tie, return the first one.
+
+# def longest_word(string):
+#     # Split the string into words
+#     list_of_words = string.split()
+#     # find the longest word and store it
+#     longest_word = max(list_of_words, key=len)
+#     # return the word
+#     return longest_word
+
+# print(longest_word("this is my string"))
+# print(longest_word("SuPER crazy amazing gracious this is amazing"))
+
+# Problem — second_largest
+# Write a function that takes a list of numbers and returns the second largest number.
+
+def second_largest(list_of_nums):
+    # get rid of dupes
+    no_dupes = set(list_of_nums)
+    # sort our list
+    sorted_nums = sorted(no_dupes)
+    # check to see if length of list is over 2
+    if len(sorted_nums) > 1:
+        # return our 2nd highest 
+        return sorted_nums[-2]
+    else:
+        # return none
+        return "None"
+
+print(second_largest([1, 2, 4, 5, 6, 10, 23, 45, 33]))
+print(second_largest([1, 1, 1]))
