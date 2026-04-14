@@ -188,28 +188,94 @@
 # Problem — valid_parentheses
 # Write a function that takes a string of parentheses and returns True if they are valid (properly opened and closed), False if not.
 
-def valid_parentheses(string):
-    # Something to hold our check
-    stack = []
-    # loop through the string
-    for symbol in string:
-        # check for opening
-        if symbol == "(":
-            # if there is the opening add to our check list
-            stack.append(symbol)
-        # if the symbol closes
-        elif symbol == ")":
-            # check if list is empty -
-            if len(stack) == 0:
-                # return false  
-                return False
-            # else pop out the opening we saved -
-            else:
-                stack.pop()
-    # if check list is empty then we know it opened and closed enough to clear out
-    return len(stack) == 0
+# def valid_parentheses(string):
+#     # Something to hold our check
+#     stack = []
+#     # loop through the string
+#     for symbol in string:
+#         # check for opening
+#         if symbol == "(":
+#             # if there is the opening add to our check list
+#             stack.append(symbol)
+#         # if the symbol closes
+#         elif symbol == ")":
+#             # check if list is empty -
+#             if len(stack) == 0:
+#                 # return false  
+#                 return False
+#             # else pop out the opening we saved -
+#             else:
+#                 stack.pop()
+#     # if check list is empty then we know it opened and closed enough to clear out
+#     return len(stack) == 0
     
-print(valid_parentheses("((()))"))
-print(valid_parentheses("(())))"))
-print(valid_parentheses(")))"))
-print(valid_parentheses("((()))"))
+# print(valid_parentheses("((()))"))
+# print(valid_parentheses("(())))"))
+# print(valid_parentheses(")))"))
+# print(valid_parentheses("((()))"))
+
+
+
+# Problem 1
+# Write a function called most_frequent_element that takes a list and returns the element that appears most frequently. If there's a tie, return the one that appears first in the list.
+# Input: [1, 3, 2, 1, 4, 3, 1]
+# Output: 1
+
+# Input: [5, 5, 4, 4]
+# Output: 5
+
+# def most_frequent_element(list_of_nums):
+#     # create dict to hold count of numbers
+#     number_count = {}
+#     # iterate through our list
+#     for num in list_of_nums:
+#         # count our numbers in our dict
+#         number_count[num] = number_count.get(num, 0) + 1
+#      # store our highest
+#     most_common = max(number_count.values())
+#     #loop and find what has most common
+#     for number, count in number_count.items():
+#         # compare the count to the most common (max)
+#         if count == most_common:
+#             # actual number that has the most common occurencnces
+#             return number
+
+# print(most_frequent_element([1, 3, 2, 1, 4, 3, 1]))
+# print(most_frequent_element([5, 5, 4, 4]))
+# print(most_frequent_element([4, 1, 2, 1, 2, 3, 5]))
+
+# Problem 2
+# Write a function called reverse_words that takes a sentence and returns the sentence with the words in reverse order.
+# Input: "Hello my name is Jonathan"
+# Output: "Jonathan is name my Hello"
+
+# Input: "I love coding"
+# Output: "coding love I"
+
+# def reverse_words(string):
+#     # split the words
+#     word_split = string.split()
+#     # reverse the list
+#     reverse_it = word_split[::-1]
+#     # return and join it
+#     return (" ").join(reverse_it)
+
+# print(reverse_words("I love coding"))
+
+# Problem — find_missing_number
+# Write a function that takes a list of numbers from 1 to n with one number missing and returns the missing number.
+
+# def missing_number(nums):
+#     # find what n actually is
+#     n = max(nums)
+#     # calculate expected sum
+#     expected = n * (n + 1) // 2
+#     # calculate actual sum
+#     actual = sum(nums)
+#     # the difference is the missing number
+#     return expected - actual
+
+# print(missing_number([1, 3, 4, 5, 6, 7]))
+# print(missing_number([2, 3, 4, 5, 6, 7]))
+
+
