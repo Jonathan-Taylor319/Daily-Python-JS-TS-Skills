@@ -12,7 +12,7 @@
 mini_store = {}
 
 def add_item(inventory, name, price, quantity):
-        inventory = {"name": name, "price": price, "quantity": quantity}
+        inventory[name] = {"price": price, "quantity": quantity}
         return inventory
 
 add_item(mini_store, "Monster", 2.99, 20)
