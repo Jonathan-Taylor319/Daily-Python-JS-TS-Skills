@@ -32,9 +32,31 @@ def simple_inventory_list(inventory):
 simple_inventory_list(mini_store)
 
 def sell_item(inventory, name, sold_ammount):
-        current_ammount = inventory[name]["quantity"]
         if name in inventory:
-                if current_ammount > 0:
+                current_ammount = inventory[name]["quantity"]
+                if current_ammount > 0 and sold_ammount < current_ammount:
+                        inventory[name]["quantity"] = current_ammount - sold_ammount
+                else:
+                        return "Either not enough in stock or too much sold"
+        else:
+                return f"{name} not in inventory"
+        
+def restock_item(inventory, name, amount_stocked):
+        if name in inventory:
+                current_ammount = inventory[name]["quantity"]
+                inventory[name]["quantity"] = current_ammount + amount_stocked
+        else:
+                return f"{name} is not in your inventory - please add properly first"
+        
+def total_inventory_value(inventory):
+        total = 0
+        for _,details in inventory.items():
+                total = total + (details["price"] * details["quantity"])
+        return f"total amount of inventory: ${total:.2f}" # adding the :.2f floats decimal to tenths
+
+print(total_inventory_value(mini_store))
+                
+
                         
 
 
