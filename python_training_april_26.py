@@ -50,11 +50,26 @@ def restock_item(inventory, name, amount_stocked):
         
 def total_inventory_value(inventory):
         total = 0
-        for _,details in inventory.items():
+        for _, details in inventory.items():
                 total = total + (details["price"] * details["quantity"])
         return f"total amount of inventory: ${total:.2f}" # adding the :.2f floats decimal to tenths
 
 print(total_inventory_value(mini_store))
+
+def low_stock(inventory):
+        low_stock = []
+        for name, details in inventory.items():
+                stock = details["quantity"]
+                if stock <= 5:
+                        low_stock.append(name)
+        return low_stock
+
+def most_valuable_item(inventory):
+        most_val = max(inventory, key=lambda name: inventory[name]["price"] * inventory[name]["quantity"])
+        return f"the most valuable thing in stock is {most_val}"
+
+print(most_valuable_item(mini_store))
+        
                 
 
                         
