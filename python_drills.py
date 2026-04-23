@@ -533,42 +533,373 @@
 # 5. low_stock(inventory) — returns list of items with quantity 5 or below
 # 6. most_valuable_item(inventory) — returns the item with the highest total value (price × quantity)
 
-mini_store_inventory = {} 
+# mini_store_inventory = {} 
 
-def add_item(inventory, name, price, quantity):
-    name = name.lower()
-    inventory[name] = {"price": price, "quantity":quantity}
+# def add_item(inventory, name, price, quantity):
+#     name = name.lower()
+#     inventory[name] = {"price": price, "quantity":quantity}
     
-add_item(mini_store_inventory, "milk - 2%", 3.99, 10)
-add_item(mini_store_inventory, "Energy Drink - Monster", 2.99, 40)
-add_item(mini_store_inventory, "Energy Drink - Red Bull", 2.99, 40)
-add_item(mini_store_inventory, "donut - glazed", .99, 5)
-add_item(mini_store_inventory, "Donut - plain", .99, 5)
-add_item(mini_store_inventory, "donut - chocolate glazed", .99, 8)
-add_item(mini_store_inventory, "medicine - aspirin", 5.99, 25)
+# add_item(mini_store_inventory, "milk - 2%", 3.99, 10)
+# add_item(mini_store_inventory, "Energy Drink - Monster", 2.99, 40)
+# add_item(mini_store_inventory, "Energy Drink - Red Bull", 2.99, 40)
+# add_item(mini_store_inventory, "donut - glazed", .99, 5)
+# add_item(mini_store_inventory, "Donut - plain", .99, 5)
+# add_item(mini_store_inventory, "donut - chocolate glazed", .99, 8)
+# add_item(mini_store_inventory, "medicine - aspirin", 5.99, 25)
 
-def simple_inventory_check(inventory):
-    print("Currently in Stock:")
-    for item, details in inventory.items():
-        print(item,":",details)
+# def simple_inventory_check(inventory):
+#     print("Currently in Stock:")
+#     for item, details in inventory.items():
+#         print(item,":",details)
 
-simple_inventory_check(mini_store_inventory)
+# simple_inventory_check(mini_store_inventory)
 
-def sell_item(inventory, item, quantity):
-    try:
-        item = item.lower()
-        if item in inventory:
-            if inventory[item]["quantity"] >= quantity:
-                inventory[item]["quantity"] = inventory[item]["quantity"] - quantity
-            else:
-                return "not enough stock"
-        else:
-            return f"{item} not found"
-    except TypeError:
-        print("Quantity should be an integer")
+# def sell_item(inventory, item, quantity):
+#     try:
+#         item = item.lower()
+#         if item in inventory:
+#             if inventory[item]["quantity"] >= quantity:
+#                 inventory[item]["quantity"] = inventory[item]["quantity"] - quantity
+#             else:
+#                 return "not enough stock"
+#         else:
+#             return f"{item} not found"
+#     except TypeError:
+#         print("Quantity should be an integer")
     
-print("Lets check to see if the sell_item works :P")
-sell_item(mini_store_inventory, "milk - 2%", 3)
-sell_item(mini_store_inventory, "milk - 2%", "one")
+# print("Lets check to see if the sell_item works :P")
+# sell_item(mini_store_inventory, "milk - 2%", 3)
+# sell_item(mini_store_inventory, "milk - 2%", "one")
 
-simple_inventory_check(mini_store_inventory)
+# simple_inventory_check(mini_store_inventory)
+
+# 3/9/26 
+#collections.counter
+
+# problem - find the most common character in a string using Collections.counter
+
+# from collections import Counter
+
+# string1 = 'this is my string'
+# string2 = 'this is going to be a longish kind of string to test things'
+
+# def find_most_used(text):
+#     counts = Counter(text.replace(" ",""))
+#     print(counts.most_common(1))
+
+# find_most_used(string1)
+# find_most_used(string2)
+
+# 3/10/26
+#set()
+
+# #ex:
+# nums = [1,2,2,3,4,4,5]
+# nums2 = [1,2,3,4,5,6,7,8,9]
+# nums3 = [2, 5, 2, 1, 6, 7, 8, 9, 25, 16]
+
+# # unique_nums = set(nums)
+# # print(unique_nums)
+
+# # # membership checking is fast
+# # print(3 in nums)
+
+# # names = ['jon', 'john', 'james', 'jon', 'joseph', 'jon']
+# # names_of_user_no_duplicates = set(names)
+# # print(names_of_user_no_duplicates)
+# # print("jon" in names_of_user_no_duplicates)
+# # print('sam' in names_of_user_no_duplicates)
+
+# # Given a list of numbers return true if a number appears more than once - 
+# # def contains_duplicates(numbers):
+# #     nums_duplicates_removed = set(numbers)
+# #     return len(numbers) != len(nums_duplicates_removed)
+
+# #same as above but refractured 
+# def contains_duplicates(numbers):
+#     return len(numbers) != len(set(numbers))
+
+# print(contains_duplicates(nums))
+# print(contains_duplicates(nums2))
+# print(contains_duplicates(nums3))
+
+# 3/11/26
+# Dictionary
+
+# word = "banana"
+# counts = {}
+
+# for letter in word:
+#     if letter in counts:
+#         counts[letter] += 1
+#     else:
+#         counts[letter] = 1
+# print(counts) 
+
+# for letter in word:
+#     counts[letter] = counts.get(letter, 0) + 1
+# print(counts)
+
+# return the most frequent number in a list
+# ages = [21, 44, 31, 21, 45, 50, 21, 40, 44]
+
+# def most_common_age(numbers):
+#     age_counter = {}
+#     for age in numbers:
+#         if age in age_counter:
+#             age_counter[age] += 1
+#         else:
+#             age_counter[age] = 1
+#     return max(age_counter, key=age_counter.get)
+
+# # def most_common_age(numbers):
+# #     age_counter = {}
+# #     for age in numbers:
+# #         age_counter[age] = age_counter.get(age, 0) + 1
+# #     most_common = max(age_counter, key=age_counter.get) 
+# #     return most_common
+
+# print(most_common_age(ages))
+
+# need to write down get() and then max(age_counter, key=age_counter.get) to understand - knew about the get to populate dict but didn't know about for loop to populate
+
+# 3/12/26
+# enumerate()
+
+# fruits = ["apple", "banana", "orange"]
+# for index, fruit in enumerate(fruits):
+#     print(index, fruit)
+
+# users = ["trix", "jon", "sparky", "cash", "trix"]
+# for index, name in enumerate(users):
+#     print(index, name)
+
+# numbers = [12, 14, 13, 44, 21, 45, 67, 69]
+
+# def wheres_the_first_even_number(things):
+#     things.sort()
+#     for index, number in enumerate(things):
+#         if (number % 2 == 0):
+#             return number
+        
+# print(wheres_the_first_even_number(numbers))
+
+# 3/13/26
+# set()
+
+# nums = [1, 2, 2, 3, 4, 4]
+
+# unique = set(nums)
+# print(unique)
+
+# problem  - return true if there's any duplicates
+
+# my_list = [1, 3, 'jon', 'james', 15, 'kickboxing', 'yes', 'no', 'yes']
+
+# # def check_for_dupes(my_input):
+# #     if len(my_input) != len(set(my_input)):
+# #         return True
+# #     else:
+# #         return False
+    
+# # refractured
+# def check_for_dupes(my_input):
+#     return len(my_input) != len(set(my_input))
+    
+# print(check_for_dupes(my_list))
+
+# week 1 Review 
+
+# new month same challenges
+
+# 🐍 Challenge 9 — Mini Store Inventory
+# Build a small store inventory system.
+# 1. add_item(inventory, name, price, quantity) — adds item, name should be lowercased
+# 2. sell_item(inventory, name, quantity) — reduces quantity when sold, handle: item not found, not enough stock, wrong input type
+# 3. restock_item(inventory, name, quantity) — increases quantity, handle: item not found
+# 4. total_inventory_value(inventory) — returns total value of ALL stock (price × quantity for each item, added together)
+# 5. low_stock(inventory) — returns list of items with quantity 5 or below
+# 6. most_valuable_item(inventory) — returns item with highest total value (price × quantity)
+
+# mini_store = {}
+
+# def add_item(inventory, name, price, quantity):
+#         name = name.lower()
+#         inventory[name] = {"price": price, "quantity": quantity}
+#         return inventory
+
+# add_item(mini_store, "Monster", 2.99, 20)
+# add_item(mini_store, "Red Bull", 2.99, 30)
+# add_item(mini_store, "Milk 2%", 4.99, 10)
+# add_item(mini_store, "Milk Chocolate", 1.99, 25)
+# add_item(mini_store, "Monster Rehab - Berry Tea", 2.99, 45)
+# add_item(mini_store, "Milk Strawberry", 1.99, 50)
+# add_item(mini_store, "Doritos", 2.50, 68)
+
+
+# def simple_inventory_list(inventory):
+#         for name, details in inventory.items():
+#                 print(name, details)
+
+# simple_inventory_list(mini_store)
+
+# def sell_item(inventory, name, sold_ammount):
+#         if name in inventory:
+#                 current_ammount = inventory[name]["quantity"]
+#                 if current_ammount > 0 and sold_ammount < current_ammount:
+#                         inventory[name]["quantity"] = current_ammount - sold_ammount
+#                 else:
+#                         return "Either not enough in stock or too much sold"
+#         else:
+#                 return f"{name} not in inventory"
+        
+# def restock_item(inventory, name, amount_stocked):
+#         if name in inventory:
+#                 current_ammount = inventory[name]["quantity"]
+#                 inventory[name]["quantity"] = current_ammount + amount_stocked
+#         else:
+#                 return f"{name} is not in your inventory - please add properly first"
+        
+# def total_inventory_value(inventory):
+#         total = 0
+#         for _, details in inventory.items():
+#                 total = total + (details["price"] * details["quantity"])
+#         return f"total amount of inventory: ${total:.2f}" # adding the :.2f floats decimal to tenths
+
+# print(total_inventory_value(mini_store))
+
+# def low_stock(inventory):
+#         low_stock = []
+#         for name, details in inventory.items():
+#                 stock = details["quantity"]
+#                 if stock <= 5:
+#                         low_stock.append(name)
+#         return low_stock
+
+# def most_valuable_item(inventory):
+#         most_val = max(inventory, key=lambda name: inventory[name]["price"] * inventory[name]["quantity"])
+#         return f"the most valuable thing in stock is {most_val}"
+
+# print(most_valuable_item(mini_store))
+        
+#                 🐍 Challenge 10 — Password Validator
+# Write a function called validate_password(password) that checks if a password meets these requirements:
+# 1. At least 8 characters long
+# 2. Contains at least one uppercase letter
+# 3. Contains at least one lowercase letter
+# 4. Contains at least one number
+# 5. Contains at least one special character from this list: !@#$%^&*
+# Return a list of everything that's WRONG with the password. If the list is empty, return "Password is valid!" If not, return the list of failures.
+
+# def validate_password(password):
+#     total_count = 0
+#     total_upper = 0
+#     total_lower = 0
+#     total_int = 0
+#     total_special = 0
+#     special_char = "!@#$%^&*"
+#     list_of_failures = []
+#     for char in password:
+#         total_count += 1
+#         if char.isupper():
+#             total_upper += 1
+#         elif char.islower():
+#             total_lower += 1
+#         elif char.isdigit():
+#             total_int += 1
+#         elif any(item in special_char for item in char):
+#             total_special += 1
+#     if total_count < 8:
+#         list_of_failures.append("Not ennough characters - needs to be at least 8 characters long")
+#     if total_upper < 1:
+#         list_of_failures.append("Password must use one uppercase Letter")
+#     if total_lower < 1:
+#         list_of_failures.append("Password must contain one lowercase Letter")
+#     if total_int < 1:
+#         list_of_failures.append("Password must contain one number")
+#     if total_special < 1:
+#         list_of_failures.append("Password must have one special character !@#$%^& ")
+#     if len(list_of_failures) == 0:
+#         return "Password Accepted"
+#     else:
+#         return list_of_failures
+
+# print((validate_password("Check!#")))
+    
+
+
+
+# print(validate_password("hello"))          # fails multiple
+# print(validate_password("Hello1!"))        # valid
+# print(validate_password("hello1!"))        # fails uppercase
+# print(validate_password("HELLO1!"))        # fails lowercase
+# print(validate_password("Helloworld!"))    # fails number
+
+# 1. reverse_string(s) — return the string reversed
+# 2. every_other(s) — return every other character starting from index 0
+# 3. first_half(s) — return the first half of the string
+# 4. last_three(s) — return the last 3 characters
+# 5. palindrome_check(s) — return True if the string is the same forwards and backwards
+
+# def reverse_string(string):
+#     return string[::-1]
+
+# def every_other(string):
+#     return string[0::2]
+
+# def first_half(string):
+#     half = len(string)//2 # // = no float
+#     return string[0:half]
+
+# def last_three(string):
+#     return string[-3::]
+
+# def palindrome_check(string):
+#     return string == string[::-1]
+
+# print(reverse_string("hello"))        # "olleh"
+# print(every_other("abcdefg"))       # "aceg"
+# print(first_half("abcdefgh"))         # "abcd"
+# print(last_three("jonathan"))         # "han"
+# print(palindrome_check("racecar"))    # True
+# print(palindrome_check("hello"))      # False
+
+# 1. Given a list of numbers, return only the even ones
+# 2. Given a list of words, return only words longer than 4 characters
+# 3. Given a list of numbers, return each number squared
+# 4. Given a list of words, return them all uppercase
+# 5. Given a list of numbers, return only numbers divisible by 3 but not by 9
+
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 18, 27]
+# words = ["cat", "elephant", "dog", "python", "rat", "javascript"]
+
+# even_nums = [num for num in numbers if num % 2 == 0]
+# print(even_nums)
+
+# words_over_4 = [word for word in words if len(word) > 4]
+# print(words_over_4)
+
+# nums_squared = [num ** 2 for num in numbers]
+# print(nums_squared)
+
+# uppercase_words = [word.upper() for word in words]
+# print(uppercase_words)
+
+# divis_by_3_not_9 = [num for num in numbers if num % 3 == 0 and num % 9 != 0]
+# print(divis_by_3_not_9)
+
+students = [
+    {"name": "Jon", "subject": "math", "score": 88},
+    {"name": "Emma", "subject": "science", "score": 95},
+    {"name": "Bob", "subject": "math", "score": 72},
+    {"name": "Sara", "subject": "science", "score": 91},
+    {"name": "Mike", "subject": "math", "score": 95},
+    {"name": "Lisa", "subject": "science", "score": 78},
+    {"name": "Alex", "subject": "math", "score": 65},
+]
+
+Write these functions:
+1. top_scorer(students) — return the student with the highest score using max() and lambda
+2. subject_averages(students) — return a dict of average score per subject using .get() accumulation
+3. passing_students(students) — list comprehension, score >= 75
+4. rank_students(students) — return students sorted highest to lowest score using sorted() and lambda
