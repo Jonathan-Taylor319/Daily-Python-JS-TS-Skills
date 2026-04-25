@@ -1176,8 +1176,26 @@ students = [
     {"name": "Alex", "subject": "math", "score": 65},
 ]
 
-Write these functions:
-1. top_scorer(students) — return the student with the highest score using max() and lambda
-2. subject_averages(students) — return a dict of average score per subject using .get() accumulation
-3. passing_students(students) — list comprehension, score >= 75
-4. rank_students(students) — return students sorted highest to lowest score using sorted() and lambda
+# Write these functions:
+# 1. top_scorer(students) — return the student with the highest score using max() and lambda
+# 2. subject_averages(students) — return a dict of average score per subject using .get() accumulation
+# 3. passing_students(students) — list comprehension, score >= 75
+# 4. rank_students(students) — return students sorted highest to lowest score using sorted() and lambda
+
+def top_scorer(students): # had to look at most expensive item from inventory challenge
+    top_student = max(students, key=lambda students:["score"]) 
+    return top_student
+
+def subject_averages(students):
+    math_scores = []
+    science_scores = []
+    for name, details in students.items():
+        if details == "math":
+            math_scores.append()
+        if details == "science":
+            science_scores.append()
+        
+
+    
+print(top_scorer(students))
+
