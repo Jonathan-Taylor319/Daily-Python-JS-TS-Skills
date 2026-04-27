@@ -1166,36 +1166,63 @@
 # divis_by_3_not_9 = [num for num in numbers if num % 3 == 0 and num % 9 != 0]
 # print(divis_by_3_not_9)
 
-students = [
-    {"name": "Jon", "subject": "math", "score": 88},
-    {"name": "Emma", "subject": "science", "score": 95},
-    {"name": "Bob", "subject": "math", "score": 72},
-    {"name": "Sara", "subject": "science", "score": 91},
-    {"name": "Mike", "subject": "math", "score": 95},
-    {"name": "Lisa", "subject": "science", "score": 78},
-    {"name": "Alex", "subject": "math", "score": 65},
-]
+# students = [
+#     {"name": "Jon", "subject": "math", "score": 88},
+#     {"name": "Emma", "subject": "science", "score": 95},
+#     {"name": "Bob", "subject": "math", "score": 72},
+#     {"name": "Sara", "subject": "science", "score": 91},
+#     {"name": "Mike", "subject": "math", "score": 95},
+#     {"name": "Lisa", "subject": "science", "score": 78},
+#     {"name": "Alex", "subject": "math", "score": 65},
+# ]
 
-# Write these functions:
-# 1. top_scorer(students) — return the student with the highest score using max() and lambda
-# 2. subject_averages(students) — return a dict of average score per subject using .get() accumulation
-# 3. passing_students(students) — list comprehension, score >= 75
-# 4. rank_students(students) — return students sorted highest to lowest score using sorted() and lambda
+# # Write these functions:
+# # 1. top_scorer(students) — return the student with the highest score using max() and lambda
+# # 2. subject_averages(students) — return a dict of average score per subject using .get() accumulation
+# # 3. passing_students(students) — list comprehension, score >= 75
+# # 4. rank_students(students) — return students sorted highest to lowest score using sorted() and lambda
 
-def top_scorer(students): # had to look at most expensive item from inventory challenge
-    top_student = max(students, key=lambda students:["score"]) 
-    return top_student
+# def top_scorer(students): # had to look at most expensive item from inventory challenge
+#     top_student = max(students, key=lambda student: student["score"]) 
+#     return top_student
 
-def subject_averages(students):
-    math_scores = []
-    science_scores = []
-    for name, details in students.items():
-        if details == "math":
-            math_scores.append()
-        if details == "science":
-            science_scores.append()
-        
+# # def subject_averages(students):
+# #     math_scores = []
+# #     science_scores = []
+# #     for student in students:
+# #         if student["subject"] == "math":
+# #             math_scores.append(student["score"])
+# #         if student["subject"] == "science":
+# #             science_scores.append(student["score"])
+# #     math_average = sum(math_scores) / len(math_scores)
+# #     science_average = sum(science_scores) / len(science_scores)
+# #     return f"The Average of math scores is {math_average}\nThe average of science scores is {science_average}"
 
-    
-print(top_scorer(students))
+# # with this refractering - able to add subjects without changing the code
+# def subject_averages(students):
+#     totals = {}
+#     counts = {}
+#     for student in students:
+#         subject = student["subject"]
+#         score = student["score"]
+#         totals[subject] = totals.get(subject, 0) + score
+#         counts[subject] = counts.get(subject, 0) + 1
+#     return {subject: totals[subject] / counts[subject] for subject in totals}
+
+# def passing_students(students):
+#     passing = [student["name"] for student in students if student["score"] >= 75]
+#     return f" list of passing students:{passing}"
+#     # for student in students:
+#     #     if student["score"] >= 75:
+#     #         passing.append(student["name"])
+#     # return passing
+
+# def rank_students(students):
+#     sorted_students = sorted(students, key=lambda student: student["score"], reverse=True)
+#     return sorted_students
+
+# print(top_scorer(students))
+# print(subject_averages(students))
+# print(passing_students(students))
+# print(rank_students(students))
 
