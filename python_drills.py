@@ -1226,3 +1226,29 @@
 # print(passing_students(students))
 # print(rank_students(students))
 
+movies = [
+    {"title": "Inception", "genre": "sci-fi", "rating": 9.2, "year": 2010, "runtime": 148},
+    {"title": "The Notebook", "genre": "romance", "rating": 7.8, "year": 2004, "runtime": 123},
+    {"title": "The Dark Knight", "genre": "action", "rating": 9.5, "year": 2008, "runtime": 152},
+    {"title": "Interstellar", "genre": "sci-fi", "rating": 8.6, "year": 2014, "runtime": 169},
+    {"title": "Titanic", "genre": "romance", "rating": 7.9, "year": 1997, "runtime": 194},
+    {"title": "Mad Max", "genre": "action", "rating": 7.6, "year": 2015, "runtime": 120},
+    {"title": "Arrival", "genre": "sci-fi", "rating": 7.9, "year": 2016, "runtime": 116},
+]
+
+# Write these functions:
+# 1. highest_rated(movies) — return the highest rated movie title only
+# 2. genre_averages(movies) — return average rating per genre as a dict
+# 3. long_movies(movies) — list comprehension, runtime over 140 minutes, return titles only
+# 4. recent_highly_rated(movies) — list comprehension, year >= 2010 AND rating >= 8.0, return titles
+# 5. genre_counts(movies) — return how many movies per genre as a dict
+
+# - still had to look up - knew to use max but lambda shakey 
+def highest_rated(movies):
+    highest = max(movies, key=lambda movie:  movie["rating"])
+    return highest
+
+def genre_averages(movies):
+    pass
+
+print(highest_rated(movies))
